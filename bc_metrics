@@ -1,0 +1,11 @@
+def compute_security_prob(N_nodes, p_malicious=0.1):
+    return [
+        sum(binom.pmf(k, n, p_malicious) for k in range(int(n / 3)))
+        for n in N_nodes
+    ]
+
+def compute_latency(N_nodes):
+    return 0.001 * (N_nodes**2) + 0.02
+
+def compute_velocity(pressure):
+    return np.gradient(pressure)
